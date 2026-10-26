@@ -1,0 +1,11 @@
+{
+	"name": "fall2026_kvt_ls_sahil",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureKeyVault",
+		"typeProperties": {
+			"baseUrl": "https://fall2026-kvt-sahil.vault.azure.net/"
+		}
+	}
+}

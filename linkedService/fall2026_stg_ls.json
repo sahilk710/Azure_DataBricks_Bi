@@ -1,0 +1,11 @@
+{
+	"name": "fall2026_stg_ls",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "AzureBlobFS",
+		"typeProperties": {
+			"url": "https://fall2026sahilstg.dfs.core.windows.net/"
+		}
+	}
+}
