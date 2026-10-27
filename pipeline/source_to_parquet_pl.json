@@ -169,19 +169,24 @@
 		],
 		"parameters": {
 			"target_container_name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "raw"
 			},
 			"source_container_name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "source-files"
 			},
 			"target_folder_name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "spl"
 			},
 			"source_folder_name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "seatlle_pet_license"
 			},
 			"source_file_name": {
-				"type": "string"
+				"type": "string",
+				"defaultValue": "spl1_fall2026.csv"
 			}
 		},
 		"annotations": []

@@ -37,6 +37,39 @@
 									"type": "Expression"
 								}
 							}
+						},
+						{
+							"name": "Execute_convert_to_parquet",
+							"type": "ExecutePipeline",
+							"dependsOn": [
+								{
+									"activity": "Set_filename",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "source_to_parquet_pl",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"target_container_name": "raw",
+									"source_container_name": "source-files",
+									"target_folder_name": "spl",
+									"source_folder_name": "seatlle_pet_license",
+									"source_file_name": {
+										"value": "@item()",
+										"type": "Expression"
+									}
+								}
+							}
 						}
 					]
 				}
@@ -79,8 +112,9 @@
 			"file_list": {
 				"type": "array",
 				"defaultValue": [
-					"sahil.txt",
-					"adf.txt"
+					"spl1_fall2026.csv",
+					"SPL2_fall2026.csv",
+					"spl3-fall2026s.csv"
 				]
 			}
 		},
