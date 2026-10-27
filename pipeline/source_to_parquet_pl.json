@@ -48,17 +48,62 @@
 				"inputs": [
 					{
 						"referenceName": "csv_files_ds",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"container_name": {
+								"value": "@pipeline().parameters.source_container_name",
+								"type": "Expression"
+							},
+							"folder_name": {
+								"value": "@pipeline().parameters.source_folder_name",
+								"type": "Expression"
+							},
+							"file_name": {
+								"value": "@pipeline().parameters.source_file_name",
+								"type": "Expression"
+							}
+						}
 					}
 				],
 				"outputs": [
 					{
 						"referenceName": "fall2026_parquet_DS",
-						"type": "DatasetReference"
+						"type": "DatasetReference",
+						"parameters": {
+							"Container_name": {
+								"value": "@pipeline().parameters.target_container_name",
+								"type": "Expression"
+							},
+							"folder_name": {
+								"value": "@pipeline().parameters.target_folder_name",
+								"type": "Expression"
+							},
+							"file_name": {
+								"value": "@concat(\n    'spl_fall2026_',\n    utcNow()\n)",
+								"type": "Expression"
+							}
+						}
 					}
 				]
 			}
 		],
+		"parameters": {
+			"target_container_name": {
+				"type": "string"
+			},
+			"source_container_name": {
+				"type": "string"
+			},
+			"target_folder_name": {
+				"type": "string"
+			},
+			"source_folder_name": {
+				"type": "string"
+			},
+			"source_file_name": {
+				"type": "string"
+			}
+		},
 		"annotations": []
 	}
 }
