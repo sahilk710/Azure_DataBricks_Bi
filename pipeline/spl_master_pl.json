@@ -22,7 +22,7 @@
 					"isSequential": true,
 					"activities": [
 						{
-							"name": "Set Set_filename",
+							"name": "Set_filename",
 							"type": "SetVariable",
 							"dependsOn": [],
 							"policy": {
