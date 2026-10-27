@@ -5,11 +5,35 @@
 			"referenceName": "fall2026_stg_ls",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"Container_name": {
+				"type": "string",
+				"defaultValue": "raw"
+			},
+			"folder_name": {
+				"type": "string"
+			},
+			"file_name": {
+				"type": "string"
+			}
+		},
 		"annotations": [],
 		"type": "Parquet",
 		"typeProperties": {
 			"location": {
-				"type": "AzureBlobFSLocation"
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().file_name",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@dataset().folder_name",
+					"type": "Expression"
+				},
+				"fileSystem": {
+					"value": "@dataset().Container_name",
+					"type": "Expression"
+				}
 			},
 			"compressionCodec": "snappy"
 		},
