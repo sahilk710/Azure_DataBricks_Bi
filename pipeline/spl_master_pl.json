@@ -77,7 +77,8 @@
 		],
 		"parameters": {
 			"files_list": {
-				"type": "array"
+				"type": "array",
+				"defaultValue": "['sahil.txt','adf.txt']"
 			}
 		},
 		"variables": {
