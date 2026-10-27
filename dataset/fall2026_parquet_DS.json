@@ -1,0 +1,18 @@
+{
+	"name": "fall2026_parquet_DS",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "fall2026_stg_ls",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	}
+}
