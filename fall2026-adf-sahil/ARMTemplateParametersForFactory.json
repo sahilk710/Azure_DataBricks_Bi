@@ -1,0 +1,21 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "fall2026-adf-sahil"
+		},
+		"fall2026_kvt_ls_sahil_properties_typeProperties_baseUrl": {
+			"value": "https://fall2026-kvt-sahil.vault.azure.net/"
+		},
+		"fall2026_sqldb_ls_properties_typeProperties_server": {
+			"value": "databifall2026sahilserver.database.windows.net"
+		},
+		"fall2026_sqldb_ls_properties_typeProperties_database": {
+			"value": "fall2026sahildatabase"
+		},
+		"fall2026_stg_ls_properties_typeProperties_url": {
+			"value": "https://fall2026sahilstg.dfs.core.windows.net/"
+		}
+	}
+}

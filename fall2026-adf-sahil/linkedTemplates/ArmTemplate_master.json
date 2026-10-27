@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "fall2026-adf-sahil"
+		},
+		"fall2026_kvt_ls_sahil_properties_typeProperties_baseUrl": {
+			"type": "string",
+			"defaultValue": "https://fall2026-kvt-sahil.vault.azure.net/"
+		},
+		"fall2026_sqldb_ls_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "databifall2026sahilserver.database.windows.net"
+		},
+		"fall2026_sqldb_ls_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "fall2026sahildatabase"
+		},
+		"fall2026_stg_ls_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://fall2026sahilstg.dfs.core.windows.net/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "fall2026-adf-sahil_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"fall2026_kvt_ls_sahil_properties_typeProperties_baseUrl": {
+						"value": "[parameters('fall2026_kvt_ls_sahil_properties_typeProperties_baseUrl')]"
+					},
+					"fall2026_sqldb_ls_properties_typeProperties_server": {
+						"value": "[parameters('fall2026_sqldb_ls_properties_typeProperties_server')]"
+					},
+					"fall2026_sqldb_ls_properties_typeProperties_database": {
+						"value": "[parameters('fall2026_sqldb_ls_properties_typeProperties_database')]"
+					},
+					"fall2026_stg_ls_properties_typeProperties_url": {
+						"value": "[parameters('fall2026_stg_ls_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}
