@@ -1,0 +1,91 @@
+{
+	"name": "spl_master_pl",
+	"properties": {
+		"activities": [
+			{
+				"name": "ForEachSPL_file",
+				"type": "ForEach",
+				"dependsOn": [
+					{
+						"activity": "Get_Source_List",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@pipeline().parameters.files_list",
+						"type": "Expression"
+					},
+					"isSequential": true,
+					"activities": [
+						{
+							"name": "Set Set_filename",
+							"type": "SetVariable",
+							"dependsOn": [],
+							"policy": {
+								"secureOutput": false,
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"variableName": "filename",
+								"value": {
+									"value": "@item()",
+									"type": "Expression"
+								}
+							}
+						}
+					]
+				}
+			},
+			{
+				"name": "Get_Source_List",
+				"type": "GetMetadata",
+				"state": "Inactive",
+				"onInactiveMarkAs": "Succeeded",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "csv_files_ds",
+						"type": "DatasetReference",
+						"parameters": {
+							"container_name": "source-files",
+							"folder_name": "seatlle_pet_license"
+						}
+					},
+					"fieldList": [],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			}
+		],
+		"parameters": {
+			"files_list": {
+				"type": "array"
+			}
+		},
+		"variables": {
+			"filename": {
+				"type": "String",
+				"defaultValue": "[\"sahil.txt\",\"adf.txt\"]"
+			}
+		},
+		"annotations": []
+	}
+}
