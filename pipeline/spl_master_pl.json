@@ -89,8 +89,6 @@
 			{
 				"name": "Get_Source_List",
 				"type": "GetMetadata",
-				"state": "Inactive",
-				"onInactiveMarkAs": "Succeeded",
 				"dependsOn": [],
 				"policy": {
 					"timeout": "0.12:00:00",
@@ -102,21 +100,29 @@
 				"userProperties": [],
 				"typeProperties": {
 					"dataset": {
-						"referenceName": "csv_files_ds",
+						"referenceName": "source_folder_ds",
 						"type": "DatasetReference",
 						"parameters": {
-							"container_name": "source-files",
-							"folder_name": "seatlle_pet_license"
+							"container_name": {
+								"value": "@pipeline().parameters.source_container_name",
+								"type": "Expression"
+							},
+							"folder_name": {
+								"value": "@pipeline().parameters.source_folder_name",
+								"type": "Expression"
+							}
 						}
 					},
-					"fieldList": [],
+					"fieldList": [
+						"childItems"
+					],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
 						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
-						"type": "DelimitedTextReadSettings"
+						"type": "BinaryReadSettings"
 					}
 				}
 			}
