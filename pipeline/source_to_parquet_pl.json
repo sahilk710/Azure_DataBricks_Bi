@@ -159,7 +159,7 @@
 								"type": "Expression"
 							},
 							"file_name": {
-								"value": "@concat(\n    'spl_fall2026_',\n    utcNow()\n)",
+								"value": "@concat('spl_fall2026_', substring(pipeline().parameters.source_file_name,21,4), '_', substring(pipeline().parameters.source_file_name,25,2), '_', substring(pipeline().parameters.source_file_name,27,2), '.parquet')",
 								"type": "Expression"
 							}
 						}
