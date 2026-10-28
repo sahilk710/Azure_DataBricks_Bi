@@ -100,6 +100,7 @@
 					"fieldList": [],
 					"storeSettings": {
 						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
 						"enablePartitionDiscovery": false
 					},
 					"formatSettings": {
@@ -112,10 +113,26 @@
 			"file_list": {
 				"type": "array",
 				"defaultValue": [
-					"spl1_fall2026.csv",
-					"SPL2_fall2026.csv",
-					"spl3-fall2026s.csv"
+					"Seattle_Pet_Licenses_20260915.csv",
+					"Seattle_Pet_Licenses_20261001.csv",
+					"Seattle_Pet_Licenses_20261015.csv"
 				]
+			},
+			"source_container_name": {
+				"type": "string",
+				"defaultValue": "source-files"
+			},
+			"source_folder_name": {
+				"type": "string",
+				"defaultValue": "seatlle_pet_license"
+			},
+			"target_container_name": {
+				"type": "string",
+				"defaultValue": "raw"
+			},
+			"target_folder_name": {
+				"type": "string",
+				"defaultValue": "spl"
 			}
 		},
 		"variables": {
