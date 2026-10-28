@@ -60,10 +60,22 @@
 								},
 								"waitOnCompletion": true,
 								"parameters": {
-									"target_container_name": "raw",
-									"source_container_name": "source-files",
-									"target_folder_name": "spl",
-									"source_folder_name": "seatlle_pet_license",
+									"target_container_name": {
+										"value": "@pipeline().parameters.target_container_name",
+										"type": "Expression"
+									},
+									"source_container_name": {
+										"value": "@pipeline().parameters.source_container_name",
+										"type": "Expression"
+									},
+									"target_folder_name": {
+										"value": "@pipeline().parameters.target_folder_name",
+										"type": "Expression"
+									},
+									"source_folder_name": {
+										"value": "@pipeline().parameters.source_folder_name",
+										"type": "Expression"
+									},
 									"source_file_name": {
 										"value": "@item()",
 										"type": "Expression"
