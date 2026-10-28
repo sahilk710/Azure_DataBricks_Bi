@@ -7,7 +7,7 @@
 				"type": "ForEach",
 				"dependsOn": [
 					{
-						"activity": "Get_Source_List",
+						"activity": "filter_csv_files",
 						"dependencyConditions": [
 							"Succeeded"
 						]
@@ -123,6 +123,29 @@
 					},
 					"formatSettings": {
 						"type": "BinaryReadSettings"
+					}
+				}
+			},
+			{
+				"name": "filter_csv_files",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Get_Source_List",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Get_Source_List').output.childItems",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@and(equals(item().type,'File'), endswith(item().name,'.csv'))",
+						"type": "Expression"
 					}
 				}
 			}
