@@ -42,8 +42,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "License_Issue_Date",
-									"physicalType": "UTF8"
+									"name": "license_issue_date",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
@@ -53,8 +54,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "License_Number",
-									"physicalType": "UTF8"
+									"name": "license_number",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							},
 							{
@@ -64,8 +66,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Animal_Name",
-									"physicalType": "UTF8"
+									"name": "animal_name",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -75,9 +78,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Species",
+									"name": "species",
 									"type": "String",
-									"physicalType": "UTF8"
+									"physicalType": "varchar"
 								}
 							},
 							{
@@ -87,8 +90,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Primary_Breed",
-									"physicalType": "UTF8"
+									"name": "primary_breed",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -98,8 +102,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "Secondary_Breed",
-									"physicalType": "UTF8"
+									"name": "secondary_breed",
+									"type": "String",
+									"physicalType": "nvarchar"
 								}
 							},
 							{
@@ -109,8 +114,9 @@
 									"physicalType": "String"
 								},
 								"sink": {
-									"name": "ZIP_Code",
-									"physicalType": "UTF8"
+									"name": "zip_code",
+									"type": "String",
+									"physicalType": "varchar"
 								}
 							}
 						],
