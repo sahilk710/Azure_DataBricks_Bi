@@ -82,6 +82,51 @@
 									}
 								}
 							}
+						},
+						{
+							"name": "Execute_load_to_sql",
+							"type": "ExecutePipeline",
+							"dependsOn": [
+								{
+									"activity": "Execute_convert_to_parquet",
+									"dependencyConditions": [
+										"Succeeded"
+									]
+								}
+							],
+							"policy": {
+								"secureInput": false
+							},
+							"userProperties": [],
+							"typeProperties": {
+								"pipeline": {
+									"referenceName": "source_to_sql_pl",
+									"type": "PipelineReference"
+								},
+								"waitOnCompletion": true,
+								"parameters": {
+									"source_container_name": {
+										"value": "@pipeline().parameters.source_container_name",
+										"type": "Expression"
+									},
+									"source_folder_name": {
+										"value": "@pipeline().parameters.source_folder_name",
+										"type": "Expression"
+									},
+									"source_file_name": {
+										"value": "@item().name",
+										"type": "Expression"
+									},
+									"sql_schema": {
+										"value": "@pipeline().parameters.sql_schema",
+										"type": "Expression"
+									},
+									"sql_table": {
+										"value": "@pipeline().parameters.sql_table",
+										"type": "Expression"
+									}
+								}
+							}
 						}
 					]
 				}
@@ -166,6 +211,14 @@
 			"target_folder_name": {
 				"type": "string",
 				"defaultValue": "spl"
+			},
+			"sql_schema": {
+				"type": "string",
+				"defaultValue": "dbo"
+			},
+			"sql_table": {
+				"type": "string",
+				"defaultValue": "seattle_pet_licenses"
 			}
 		},
 		"variables": {
